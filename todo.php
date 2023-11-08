@@ -54,7 +54,7 @@ function addCommand(array $arguments)
 	//unserialize - преобразовывает обратно
 	//var_dump(serialize($todo));
 	$fileName = date('Y-m-d') . '.txt';
-	$filePath = __DIR__ . "/data" . $fileName;
+	$filePath = __DIR__ . "/data/" . $fileName;
 	if (file_exists($filePath))
 	{
 		$content = file_get_contents($filePath);
@@ -74,7 +74,7 @@ function addCommand(array $arguments)
 function listCommand(array $arguments)
 {
 	$fileName = date('Y-m-d') . '.txt';
-	$filePath = __DIR__ . "/data" . $fileName;
+	$filePath = __DIR__ . "/data/" . $fileName;
 
 	if(!file_exists($filePath))
 	{
