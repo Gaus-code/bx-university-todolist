@@ -67,14 +67,11 @@ body{
 .content_main{
 	display: flex;
 	flex-direction: column;
-	gap: 15px;
 }
 .content_todos{
 	display: flex;
 	flex-direction: column;
 	gap: 1px;
-	margin-bottom: 25px;
-
 }
 .todo{
 	display: flex;
@@ -100,6 +97,7 @@ body{
 	align-items: center;
 	justify-content: center;
 	position: relative;
+	margin-top: 20px;
 }
 .addTodo_input{
 	border: 1px solid #9599ac;
