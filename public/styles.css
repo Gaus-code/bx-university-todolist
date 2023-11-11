@@ -1,0 +1,134 @@
+/* montserrat-regular - cyrillic_latin */
+@font-face {
+	font-display: swap;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	src: url('fonts/montserrat-v25-cyrillic_latin-regular.woff2') format('woff2');
+}
+/* montserrat-500 - cyrillic_latin */
+@font-face {
+	font-display: swap;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 500;
+	src: url('fonts/montserrat-v25-cyrillic_latin-500.woff2') format('woff2');
+}
+/* montserrat-600 - cyrillic_latin */
+@font-face {
+	font-display: swap;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 600;
+	src: url('fonts/montserrat-v25-cyrillic_latin-600.woff2') format('woff2');
+}
+/* montserrat-700 - cyrillic_latin */
+@font-face {
+	font-display: swap;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 700;
+	src: url('fonts/montserrat-v25-cyrillic_latin-700.woff2') format('woff2');
+}
+input[type="checkbox"]{
+	scale: 1.5;
+	cursor: pointer;
+}
+body{
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	background-color: #376274;
+	color: #e5e6ee;
+}
+.main{
+	padding-top: 100px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.content{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.content_header{
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	align-items: center;
+	font-size: clamp(24px, 2vw, 40px);
+}
+.icon{
+	font-size: clamp(28px, 2vw, 48px);
+}
+.content_main{
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+.content_todos{
+	display: flex;
+	flex-direction: column;
+	gap: 1px;
+	margin-bottom: 25px;
+
+}
+.todo{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	font-size: clamp(12px, 2vw, 20px);
+	font-weight: 600;
+}
+.labelTodo{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	gap: 8px;
+}
+.labelText{
+	border-bottom: 2px solid #9a86a7;
+}
+.addTodo{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 10px;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+.addTodo_input{
+	border: 1px solid #9599ac;
+	border-radius: 20px;
+	padding-left: 25px;
+	font-size: clamp(12px, 2vw, 24px);
+	padding-top: 4px;
+	padding-bottom: 4px;
+	color: #565c91;
+	font-weight: 600;
+}
+.input_icon{
+	position: absolute;
+	top: 0;
+	left: 3px;
+}
+.addTodo_btn{
+	background-color: #8895ab;
+	border-radius: 25px;
+	text-align: center;
+	font-size: clamp(20px, 2vw, 28px);
+	text-transform: uppercase;
+	font-weight: 600;
+	padding-left: 10px;
+	padding-right: 10px;
+	cursor: pointer;
+}
+
+.content_footer{
+	margin-top: 40px;
+	font-size: clamp(4px, 2vw, 12px);
+}
