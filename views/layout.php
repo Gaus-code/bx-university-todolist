@@ -8,7 +8,7 @@
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="<?= option('APP_LANG', 'en'); ?>">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport"
@@ -27,7 +27,7 @@
 		<?= $content ?>
 		<div class="content_footer">
 			<div>
-				<p>© <?= date('Y')?> ToDoList by bitrix University</p>
+				<p>© <?= date('Y')?> <?= $title ?> by bitrix University</p>
 			</div>
 			<?= view('components/menu', ['items' => $bottomMenu]); ?>
 		</div>

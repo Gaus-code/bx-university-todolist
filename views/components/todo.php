@@ -1,8 +1,10 @@
 <?php
 /**
- * @var array $todo
+ * @throws Exception
  * @var bool $isHistory
+ * @var array $todo
  */
+
 ?>
 
 <article class="content_todos">
@@ -13,7 +15,8 @@
 				<?= ($todo['completed']) ? 'checked' : ''; ?>
 				<?= ($isHistory) ? 'disabled' : ''; ?>
 			>
-			<p class="labelText"><?= safe($todo['title']) ?></p>
+			<p class="labelText"><?= safe( truncate($todo['title'], option('TRUNCATE_TODO', 200))) ?></p>
 		</label>
 	</article>
 </article>
+

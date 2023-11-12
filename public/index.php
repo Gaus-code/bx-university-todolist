@@ -1,11 +1,11 @@
 <?php
 require_once __DIR__ . '/../boot.php';
 
-
 $time = null;
 $isHistory = false;
-$title = 'ToDoList';
+$title = option('APP_NAME', 'ToDoList24');
 $errors = [];
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
