@@ -2,7 +2,6 @@
 
 require_once __DIR__ . '/../boot.php';
 
-//$todos = getTodos();
 $allTodos = prepareReportData();
 
 $totalDays = count($allTodos);
@@ -40,9 +39,9 @@ $report = [
 	"Average completed tasks per day: $averageCompletedTasksCount",
 ];
 
-
 echo view('layout',[
 	'title' => 'ToDoList : Report',
+	'bottomMenu' => $bottomMenu = require ROOT . '/menu.php',
 	'content' => view('pages/report',[
 		'report' => $report,
 	]),

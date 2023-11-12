@@ -1,9 +1,11 @@
 <?php
 require_once __DIR__ . '/../boot.php';
 
+
 $time = null;
 $isHistory = false;
 $title = 'ToDoList';
+$errors = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
@@ -38,9 +40,9 @@ if(isset($_GET['date']))
 	}
 }
 
-
 echo view('layout',[
 	'title' => $title,
+	'bottomMenu' => $bottomMenu = require ROOT . '/menu.php',
 	'content' => view('pages/index',[
 		'todos' => getTodos($time),
 		'isHistory' => $isHistory,

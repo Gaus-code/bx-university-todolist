@@ -38,7 +38,8 @@ body{
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 400;
 	font-style: normal;
-	background-color: #376274;
+	/*background-color: #376274;*/
+	background-color: #284368;
 	color: #e5e6ee;
 }
 .main{
@@ -63,6 +64,8 @@ body{
 }
 .icon{
 	font-size: clamp(28px, 2vw, 48px);
+	text-transform: none;
+	text-decoration: none;
 }
 .content_main{
 	display: flex;
@@ -95,25 +98,20 @@ body{
 	flex-wrap: wrap;
 	gap: 10px;
 	align-items: center;
-	justify-content: center;
-	position: relative;
+	justify-content: flex-start;
 	margin-top: 20px;
 }
 .addTodo_input{
 	border: 1px solid #9599ac;
 	border-radius: 20px;
-	padding-left: 25px;
+	padding-left: 8px;
 	font-size: clamp(12px, 2vw, 24px);
 	padding-top: 4px;
 	padding-bottom: 4px;
 	color: #565c91;
 	font-weight: 600;
 }
-.input_icon{
-	position: absolute;
-	top: 0;
-	left: 3px;
-}
+
 .addTodo_btn{
 	background-color: #8895ab;
 	border-radius: 25px;
@@ -129,6 +127,31 @@ body{
 .content_footer{
 	margin-top: 40px;
 	font-size: clamp(4px, 2vw, 12px);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+}
+nav{
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	border-bottom: 2px solid #9a86a7;
+	border-radius: 8px;
+}
+nav a{
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #e5e6ee;
+	border-left: 2px solid #9a86a7;
+	border-right: 2px solid #9a86a7;
+	border-radius: 4px;
+	padding: 1px 6px;
+}
+nav a:hover, .is_active{
+	background-color: #9a86a7;
+
 }
 
 .alert, .danger{

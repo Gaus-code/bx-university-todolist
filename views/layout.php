@@ -3,6 +3,7 @@
  * @var string $title
  * @var array $report
  * @var string $content
+ * @var array $bottomMenu
  */
 ?>
 
@@ -20,12 +21,15 @@
 <main class="main">
 	<section class="content">
 		<div class="content_header">
-			<span class="icon">📝</span>
+			<a href="/" class="icon">📝</a>
 			<h1><?= $title ?></h1>
 		</div>
 		<?= $content ?>
 		<div class="content_footer">
-			<p>© <?= date('Y')?> ToDoList by bitrix University</p>
+			<div>
+				<p>© <?= date('Y')?> ToDoList by bitrix University</p>
+			</div>
+			<?= view('components/menu', ['items' => $bottomMenu]); ?>
 		</div>
 	</section>
 </main>

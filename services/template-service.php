@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @throws Exception
+ */
 function view(string $path, array $variables = []): string
 {
 	if(!preg_match('/^[0-9A-Za-z\/ -]+$/', $path))
