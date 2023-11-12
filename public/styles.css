@@ -130,3 +130,12 @@ body{
 	margin-top: 40px;
 	font-size: clamp(4px, 2vw, 12px);
 }
+
+.alert, .danger{
+	font-size: 18px;
+	color: black;
+	font-weight: 600;
+	background-color: #791a2a;
+	text-align: center;
+	border-radius: 10px;
+}

@@ -26,6 +26,14 @@ function getRepositoryPath(?int $time): string
 
 }
 
+function addToDo(array $todo, ?int $time = null)
+{
+	$todos = getTodos($time);
+	$todos[] = $todo;
+
+	storeTodos($todos);
+}
+
 function storeTodos(array $todos, ?int $time = null)
 {
 	$filePath = getRepositoryPath($time);
