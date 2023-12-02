@@ -2,27 +2,7 @@
 
 function getTodos(?int $time = null): array
 {
-	$dbHost = '127.0.0.1';
-	$dbUser = 'root';
-	$dbPassword = '';
-	$dbName = 'todolist';
-
-	$connection = mysqli_init();
-	$connected = mysqli_real_connect($connection, $dbHost, $dbUser, $dbPassword, $dbName);
-
-	if (!$connected)
-	{
-		$error = mysqli_connect_errno() . ': ' . mysqli_connect_error();
-		throw new Exception($error);
-	}
-
-	$encodingResult = mysqli_set_charset($connection, 'utf8');
-
-	if (!$encodingResult)
-	{
-		throw new Exception(mysqli_error($connection));
-	}
-
+	$connection = getDbConnection();
 	$from = date('Y-m-d 00:00:00', $time);
 	$to = date('Y-m-d 23:59:59', $time);
 
@@ -51,28 +31,22 @@ function getTodos(?int $time = null): array
 	return $todos;
 }
 
-function getRepositoryPath(?int $time): string
+
+function addToDo(array $todo): bool
 {
-	$time = $time ?? time();
+	$connection = getDbConnection();
+	$id = mysqli_real_escape_string($connection, $todo['id']);
+	$title = mysqli_real_escape_string($connection, $todo['title']);
+	$sql= "INSERT INTO todos(id, title) VALUES ('{$id}', '{$title}');";
 
-	$fileName = date('Y-m-d') . '.txt';
-	return  ROOT . "/data/" . $fileName;
-
+	$result = mysqli_query($connection, $sql);
+	if (!$result)
+	{
+		throw new Exception(mysqli_error($connection));
+	}
+	return true;
 }
 
-function addToDo(array $todo, ?int $time = null)
-{
-	$todos = getTodos($time);
-	$todos[] = $todo;
-
-	storeTodos($todos);
-}
-
-function storeTodos(array $todos, ?int $time = null)
-{
-	$filePath = getRepositoryPath($time);
-	file_put_contents($filePath, serialize($todos));
-}
 
 function getTodosOrFail (?int $time = null): array
 {

@@ -40,11 +40,13 @@ if(isset($_GET['date']))
 	}
 }
 
+
+$todos= [];
 echo view('layout',[
 	'title' => $title,
 	'bottomMenu' => $bottomMenu = require ROOT . '/menu.php',
 	'content' => view('pages/index',[
-		'todos' => getTodos($time),
+		'todos' => $todos, //getTodos($time),
 		'isHistory' => $isHistory,
 		'errors' => $errors,
 	]),

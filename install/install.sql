@@ -9,3 +9,4 @@ CREATE TABLE IF NOT EXISTS todos(
 
 INSERT INTO todos (id, title) VALUES ('123', 'WAKE UP');
 INSERT INTO todos (id, title) VALUES ('456', 'DRINK COFFEE');
+INSERT INTO todos (id, title) VALUES ('111', 'AAAAAAAAAA');
