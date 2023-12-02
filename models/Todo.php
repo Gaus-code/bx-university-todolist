@@ -7,22 +7,22 @@ class Todo
 
 	private bool $completed = false;
 
-	private int $createdAt;
+	private DateTime $createdAt;
 
-	private ?int $updatedAt = null;
+	private ?DateTime $updatedAt = null;
 
-	private ?int $completedAt = null;
+	private ?DateTime $completedAt = null;
 
 	public function __construct(string $title)
 	{
 		$this->id = uniqid('', true);
 		$this->setTitle($title);
-		$this->createdAt = time();
+		$this->createdAt = new DateTime();
 	}
 
 	public function done()
 	{
-		$now = time();
+		$now = new DateTime();
 		$this->completed = true;
 		$this->completedAt = $now;
 		$this->updatedAt = $now;
@@ -59,17 +59,17 @@ class Todo
 		$this->title = $title;
 	}
 
-	public function getCreatedAt(): int
+	public function getCreatedAt(): DateTime
 	{
 		return $this->createdAt;
 	}
 
-	public function getUpdatedAt(): ?int
+	public function getUpdatedAt(): ?DateTime
 	{
 		return $this->updatedAt;
 	}
 
-	public function getCompletedAt(): ?int
+	public function getCompletedAt(): ?DateTime
 	{
 		return $this->completedAt;
 	}

@@ -2,7 +2,7 @@
 /**
  * @throws Exception
  * @var bool $isHistory
- * @var Todo[] $todo
+ * @var Todo $todo
  */
 
 ?>
@@ -16,7 +16,7 @@
 				<?= ($isHistory) ? 'disabled' : ''; ?>
 			>
 			<p class="labelText"><?= safe( truncate($todo['title'], option('TRUNCATE_TODO', 200))) ?></p>
-			<time datetime="2021-10-12">October, 12</time>
+			<time datetime="<?= $todo->getCreatedAt()->format(DateTime::ATOM)?>"><?= $todo->getCreatedAt()->format('M, d') ?></time>
 		</label>
 	</article>
 </article>
