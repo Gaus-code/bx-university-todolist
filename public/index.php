@@ -6,6 +6,21 @@ $isHistory = false;
 $title = option('APP_NAME', 'ToDoList24');
 $errors = [];
 
+function getTodoRepository(): Repository
+{
+	$useRedis = option('USE_REDIS', false);
+
+	if ($useRedis)
+	{
+		return new RedisTodoRepository();
+	}
+	else
+	{
+		return new TodoRepository();
+	}
+}
+
+$repository = getTodoRepository();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
@@ -13,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	if (strlen($title) > 0)
 	{
 		$todo = new Todo($title);
-		saveToDo($todo);
+		$repository->add($todo);
 		redirect('/?saved=true');
 	}
 	else
@@ -45,7 +60,7 @@ echo view('layout',[
 	'title' => $title,
 	'bottomMenu' => $bottomMenu = require ROOT . '/menu.php',
 	'content' => view('pages/index',[
-		'todos' => getTodos($time),
+		'todos' =>  $repository->getList(['filter'=> $time]),
 		'isHistory' => $isHistory,
 		'errors' => $errors,
 	]),
