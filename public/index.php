@@ -12,8 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	$title = trim($_POST['title']);
 	if (strlen($title) > 0)
 	{
-		$todo = createToDo($title);
-		addToDo($todo);
+		$todo = new Todo($title);
+		saveToDo($todo);
 		redirect('/?saved=true');
 	}
 	else
@@ -41,12 +41,11 @@ if(isset($_GET['date']))
 }
 
 
-$todos= [];
 echo view('layout',[
 	'title' => $title,
 	'bottomMenu' => $bottomMenu = require ROOT . '/menu.php',
 	'content' => view('pages/index',[
-		'todos' => $todos, //getTodos($time),
+		'todos' => getTodos($time),
 		'isHistory' => $isHistory,
 		'errors' => $errors,
 	]),

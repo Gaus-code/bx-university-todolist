@@ -15,8 +15,11 @@
 				<?= ($todo->isCompleted() ? 'checked' : ''); ?>
 				<?= ($isHistory) ? 'disabled' : ''; ?>
 			>
-			<p class="labelText"><?= safe( truncate($todo['title'], option('TRUNCATE_TODO', 200))) ?></p>
-			<time datetime="<?= $todo->getCreatedAt()->format(DateTime::ATOM)?>"><?= $todo->getCreatedAt()->format('M, d') ?></time>
+			<?= safe( truncate($todo->getTitle(), option('TRUNCATE_TODO', 200))) ?>
+			<time
+				datetime="<?= $todo->getCreatedAt()->format(DateTime::ATOM)?>">
+				<?= $todo->getCreatedAt()->format('M, d') ?>
+			</time>
 		</label>
 	</article>
 </article>

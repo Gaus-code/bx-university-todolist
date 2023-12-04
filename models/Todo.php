@@ -1,4 +1,5 @@
 <?php
+
 class Todo
 {
 	private string $id;
@@ -13,11 +14,22 @@ class Todo
 
 	private ?DateTime $completedAt = null;
 
-	public function __construct(string $title)
+	public function __construct(
+		string $title,
+		?string $id = null,
+		?bool $completed = null,
+		?DateTime $createdAt = null,
+		?DateTime $updatedAt = null,
+		?DateTime$completedAt = null
+	)
 	{
-		$this->id = uniqid('', true);
+		$this->id = $id ?? uniqid('', true);
+		$this->completed = $completed ?? false;
+		$this->createdAt = $createdAt ?? new DateTime();
+		$this->updatedAt = $updatedAt;
+		$this->completedAt = $completedAt;
+
 		$this->setTitle($title);
-		$this->createdAt = new DateTime();
 	}
 
 	public function done()
@@ -49,6 +61,7 @@ class Todo
 	{
 		return $this->title;
 	}
+
 
 	public function setTitle(string $title): void
 	{
